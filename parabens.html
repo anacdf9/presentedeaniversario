@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parabéns!</title>
+    <style>
+        body {
+            background: url('background3.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #32CD32;
+            font-family: "Courier New", monospace;
+            text-align: center;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #texto {
+            font-size: 1.2em;
+            white-space: pre-line;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+        #loading {
+            display: none;
+            font-size: 1.2em;
+            color: red;
+            font-weight: bold;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="texto"></div>
+    <div id="loading">LOADING...</div>
+
+    <script>
+        const textoCompleto = `PARABÉNS - VOCÊ ACABA DE GARANTIR SEU PRODUTO.
+Consta em nosso site que o produto foi entregue hoje de tarde, sinto muito ter omitido as informações,  
+mas a empresa tinha que prezar pelo termo de confidencialidade, sua namorada teve que concordar com tudo isso.
+Corra para assinar o termo de recebimento, afinal, depois de isso tudo, você merece.
+O um que é três termina aqui, para concluir a entrega com êxito você terá que achar onde está e assinar nosso termo de recebimento.
+A CEO infelizmente teve alguns problemas e o termo foi entregue onde o nick não cabe.
+Perdoe os easter-eggs, nossos funcionários gostam de dificultar as coisas!
+A velocidade é nosso lema, então não perca tempo e vá logo para o local onde o "um que é três" termina.
+
+A empresa ClarasCP LTDA agradece sua preferência e esperamos que tenha gostado da experiência.
+XOXO`;
+
+        const elementoTexto = document.getElementById("texto");
+        const loading = document.getElementById("loading");
+
+        let index = 0;
+        function digitarTexto() {
+            if (index < textoCompleto.length) {
+                elementoTexto.innerHTML += textoCompleto[index];
+                index++;
+                setTimeout(digitarTexto, 50);
+            } else {
+                loading.style.display = "block";
+            }
+        }
+
+        digitarTexto();
+    </script>
+
+</body>
+</html>
