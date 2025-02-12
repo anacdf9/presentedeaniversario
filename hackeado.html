@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackeado</title>
+    <style>
+        body {
+            background: url('background2.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: "Courier New", monospace;
+            text-align: center;
+            color: #32CD32;
+        }
+        #texto {
+            font-size: 1.2em;
+            white-space: pre-line;
+            margin-bottom: 20px;
+        }
+        #botao {
+            display: none;
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="texto"></div>
+    <button id="botao" onclick="window.location.href='parabens.html'">Nunca Um</button>
+
+    <script>
+        const textoCompleto = `Olá Bruno, tudo bem? Bem-vindo a ClaraCP! Nossa empresa está muito feliz em ter você como cliente.
+Não se assuste com nosso site! Ele foi hackeado por um de nossos funcionários, mas não se preocupe, ele não fez nada de mal.
+Ele apenas queria ter certeza que você teria uma experiência única ao receber a entrega do seu produto.
+Aqui está a mensagem que ele deixou para você:
+
+"Olá Bruno, tudo bem? Me desculpe pelo susto, mas eu precisava ter certeza que você teria uma experiência única ao receber a entrega do seu produto.
+Eu nunca imaginaria fazer tudo isso, mas a ClaraCP me ensinou que o cliente é a parte mais importante de uma empresa e do coração também.
+Bom, espero que possamos nos encontrar em breve e que você tenha superado a equipe de telemarketing, porque eles são muito chatos!
+Até mais, e lembre-se: a ClaraCP é a empresa que mais te ama no mundo!
+
+Nosso lema como empresa é carregar o mérito de ótimas experiências e satisfação, por isso ainda temos mais uma página para você.
+Para acessá-la, basta clicar no botão abaixo."`;
+
+        const elementoTexto = document.getElementById("texto");
+        const botao = document.getElementById("botao");
+
+        let index = 0;
+        function digitarTexto() {
+            if (index < textoCompleto.length) {
+                elementoTexto.innerHTML += textoCompleto[index];
+                index++;
+                setTimeout(digitarTexto, 50);
+            } else {
+                botao.style.display = "block";
+            }
+        }
+
+        digitarTexto();
+    </script>
+
+</body>
+</html>
