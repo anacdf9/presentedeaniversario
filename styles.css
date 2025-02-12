@@ -1,0 +1,106 @@
+/* Reset padrão para remover margens e preenchimentos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral */
+body {
+    background-color: black;
+    color: lime;
+    font-family: "Courier New", monospace;
+    overflow: hidden;
+}
+
+/* PÁGINA INICIAL - ERRO 1244 */
+.background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 1024px;
+    height: 768px;
+    background: url('images/background.gif') no-repeat center center;
+    background-size: cover;
+    transform: translate(-50%, -50%);
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.error-title {
+    font-size: 80px;
+    font-weight: bold;
+    text-shadow: 4px 4px red;
+}
+
+.subtitle {
+    font-size: 16px;
+    text-transform: lowercase;
+}
+
+/* Barra de carregamento com 50% preenchido e piscando */
+.progress-bar {
+    width: 50%;
+    height: 20px;
+    border: 2px solid lime;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+}
+
+.progress {
+    height: 100%;
+    width: 50%; /* Agora realmente aparece 50% carregado */
+    background-color: lime;
+    animation: blinkProgress 1s infinite alternate;
+}
+
+@keyframes blinkProgress {
+    0% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+/* Efeito piscante para o texto "Pressione Enter" */
+.press-enter {
+    font-size: 18px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* PÁGINA HACKER - TEXTO DIGITADO */
+.terminal {
+    width: 90%;
+    max-width: 800px; /* Define um limite para não ficar muito largo */
+    margin: 20px;
+    color: lime;
+    white-space: normal; /* Permite que o texto quebre a linha automaticamente */
+    font-size: 18px;
+    word-wrap: break-word; /* Garante a quebra de palavras longas */
+    overflow-wrap: break-word; /* Quebra palavras longas corretamente */
+}
+
+/* Loading piscando no canto inferior direito */
+.loading {
+    font-size: 16px;
+    color: red;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    animation: blink 1s infinite;
+}
+
+.hidden {
+    display: none;
+}
